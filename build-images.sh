@@ -34,19 +34,6 @@ podman build \
 
 images+=("${repobase}/ns8-dnsmasq")
 
-#
-# NOTICE:
-#
-# It is possible to build and publish multiple images.
-#
-# 1. create another buildah container
-# 2. add things to it and commit it
-# 3. append the image url to the images array
-#
-
-#
-# Setup CI when pushing to Github.
-# Warning! docker::// protocol expects lowercase letters (,,)
 if [[ -n "${CI}" ]]; then
     # Set output value for Github Actions
     printf "images=%s\n" "${images[*],,}" >> "${GITHUB_OUTPUT}"
