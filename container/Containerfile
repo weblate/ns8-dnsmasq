@@ -1,0 +1,29 @@
+FROM docker.io/debian:12.5-slim as base
+
+FROM base as build
+# Setup image
+RUN apt-get update \
+    && apt-get install -y build-essential
+# Download and untar dnsmasq
+ARG DNSMASQ_VERSION
+ADD https://dnsmasq.org/dnsmasq-${DNSMASQ_VERSION}.tar.gz /tmp/dnsmasq.tar.gz
+RUN mkdir -p /tmp/dnsmasq \
+    && tar -xvf /tmp/dnsmasq.tar.gz -C /tmp/dnsmasq --strip-components=1 \
+    && rm /tmp/dnsmasq.tar.gz
+WORKDIR /tmp/dnsmasq
+# Build dnsmasq
+RUN make
+# Apply configuration patch
+COPY conf.patch /tmp/dnsmasq/conf.patch
+RUN patch < conf.patch
+
+FROM base as dist
+# Copy built dnsmasq and configuration
+COPY --from=build /tmp/dnsmasq/src/dnsmasq /usr/local/sbin/dnsmasq
+COPY --from=build /tmp/dnsmasq/dnsmasq.conf.example /etc/dnsmasq.conf
+# Since we're defining a config directory, we need to create it
+RUN mkdir -p /etc/dnsmasq.d
+# Set custom entrypoint and command
+COPY entrypoint.sh /entrypoint
+ENTRYPOINT [ "/entrypoint" ]
+CMD [ "dnsmasq" ]

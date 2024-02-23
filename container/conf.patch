@@ -1,0 +1,40 @@
+--- dnsmasq.conf.example	2024-02-19 13:59:27.692668848 +0100
++++ dnsmasq.conf.example.patch	2024-02-19 16:51:02.777622376 +0100
+@@ -4,6 +4,9 @@
+ # as the long options legal on the command line. See
+ # "/usr/sbin/dnsmasq --help" or "man 8 dnsmasq" for details.
+
++# To allow running in container, do not run as a daemon
++keep-in-foreground
++
+ # Listen on this specific port instead of the standard DNS port
+ # (53). Setting this to zero completely disables DNS function,
+ # leaving only DHCP and/or TFTP.
+@@ -399,10 +402,14 @@
+ # dnsmasq is also the host running samba.
+ # you may want to uncomment some or all of them if you use
+ # Windows clients and Samba.
+-#dhcp-option=19,0           # option ip-forwarding off
+-#dhcp-option=44,0.0.0.0     # set netbios-over-TCP/IP nameserver(s) aka WINS server(s)
+-#dhcp-option=45,0.0.0.0     # netbios datagram distribution server
+-#dhcp-option=46,8           # netbios node type
++# option ip-forwarding off
++dhcp-option=19,0
++# set netbios-over-TCP/IP nameserver(s) aka WINS server(s)
++dhcp-option=44,0.0.0.0
++# netbios datagram distribution server
++dhcp-option=45,0.0.0.0
++# netbios node type
++dhcp-option=46,8
+
+ # Send an empty WPAD option. This may be REQUIRED to get windows 7 to behave.
+ #dhcp-option=252,"\n"
+@@ -681,7 +688,7 @@
+ #conf-dir=/etc/dnsmasq.d,.bak
+
+ # Include all files in a directory which end in .conf
+-#conf-dir=/etc/dnsmasq.d/,*.conf
++conf-dir=/etc/dnsmasq.d/,*.conf
+
+ # If a DHCP client claims that its name is "wpad", ignore that.
+ # This fixes a security hole. see CERT Vulnerability VU#598349
