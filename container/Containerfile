@@ -25,5 +25,8 @@ COPY --from=build /tmp/dnsmasq/dnsmasq.conf.example /etc/dnsmasq.conf
 RUN mkdir -p /etc/dnsmasq.d
 # Set custom entrypoint and command
 COPY entrypoint.sh /entrypoint
+EXPOSE 53/udp
+EXPOSE 67/udp
+VOLUME [ "/etc/dnsmasq.d" ]
 ENTRYPOINT [ "/entrypoint" ]
 CMD [ "dnsmasq" ]
