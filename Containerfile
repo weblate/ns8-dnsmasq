@@ -20,4 +20,5 @@ COPY imageroot imageroot
 COPY --from=builder /app/dist ui
 LABEL org.nethserver.images="ghcr.io/nethserver/dnsmasq:latest"
 LABEL org.nethserver.rootfull=1
+LABEL org.nethserver.authorizations="node:fwadm"
 ENTRYPOINT [ "/" ]
