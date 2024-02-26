@@ -44,7 +44,7 @@
                   :src="
                     app.logo
                       ? app.logo
-                      : require('@/assets/module_default_logo.png')
+                      : require('@/assets/module_logo.png')
                   "
                   :alt="app.name + ' logo'"
                 />
