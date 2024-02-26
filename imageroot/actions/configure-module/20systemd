@@ -7,4 +7,6 @@
 
 install -m 644 "${AGENT_INSTALL_DIR}/dnsmasq.service" "/etc/systemd/system/${MODULE_ID}.service"
 systemctl daemon-reload
-systemctl enable --now "${MODULE_ID}.service"
+systemctl enable "${MODULE_ID}.service"
+# allow the reload of configuration even if
+systemctl restart "${MODULE_ID}.service"
