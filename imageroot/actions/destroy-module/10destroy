@@ -8,7 +8,5 @@
 import os
 import agent
 
-
-
-# open firewall for DNS and DHCP
-agent.assert_exp(agent.add_public_service(os.environ['MODULE_ID'], ["53/udp", "67/udp"]))
+# close firewall for DNS and DHCP
+agent.assert_exp(agent.remove_public_service(os.environ['MODULE_ID']))

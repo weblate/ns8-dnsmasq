@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+install -m 644 "${AGENT_INSTALL_DIR}/dnsmasq.service" "/etc/systemd/system/${MODULE_ID}.service"
+systemctl daemon-reload
+systemctl enable --now "${MODULE_ID}.service"
