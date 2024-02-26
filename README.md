@@ -7,7 +7,7 @@ This module allows to configure a [dnsmasq](https://dnsmasq.org/doc.html) instan
 Install the module with:
 
 ```bash
-add-module ghcr.io/nethserver/ns8-dnsmasq:latest
+add-module ghcr.io/nethserver/dnsmasq:latest
 ```
 
 ## Uninstall
@@ -23,7 +23,7 @@ remove-module --no-preserve <module_instance>
 Test the module using the `test-module.sh` script:
 
 ```bash
-./test-module.sh <NODE_ADDR> ghcr.io/nethserver/ns8-dnsmasq:latest
+./test-module.sh <NODE_ADDR> ghcr.io/nethserver/dnsmasq:latest
 ```
 
 The tests are made using [Robot Framework](https://robotframework.org/)
