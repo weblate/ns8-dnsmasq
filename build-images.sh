@@ -18,21 +18,21 @@ DNSMASQ_VERSION=2.89
 podman build \
     --force-rm \
     --layers \
-    --tag ${repobase}/dnsmasq \
-    --build-arg DNSMASQ_VERSION=${DNSMASQ_VERSION} \
+    --tag "${repobase}/dnsmasq-server" \
+    --build-arg "DNSMASQ_VERSION=${DNSMASQ_VERSION}" \
     container
 
-images+=("${repobase}/dnsmasq")
+images+=("${repobase}/dnsmasq-server")
 
 # Build NS8-image
 
 podman build \
     --force-rm \
     --layers \
-    --tag ${repobase}/ns8-dnsmasq \
+    --tag "${repobase}/dnsmasq" \
     .
 
-images+=("${repobase}/ns8-dnsmasq")
+images+=("${repobase}/dnsmasq")
 
 if [[ -n "${CI}" ]]; then
     # Set output value for Github Actions
