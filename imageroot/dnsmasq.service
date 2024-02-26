@@ -21,7 +21,7 @@ ExecStart=/usr/bin/podman run \
         --network=host \
         --cap-add=NET_ADMIN,NET_RAW \
         --volume=/var/lib/nethserver/%N/dnsmasq.d:/etc/dnsmasq.d:Z \
-        ${DNSMASQ_IMAGE}
+        ${DNSMASQ_SERVER_IMAGE}
 ExecStop=/usr/bin/podman stop \
         --ignore -t 10 \
         --cidfile=%t/%n.ctr-id
