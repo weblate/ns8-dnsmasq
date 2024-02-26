@@ -6,5 +6,5 @@
 #
 
 systemctl disable --now "${MODULE_ID}.service"
-systemctl daemon-reload
 rm -f "/etc/systemd/system/${MODULE_ID}.service"
+systemctl daemon-reload
