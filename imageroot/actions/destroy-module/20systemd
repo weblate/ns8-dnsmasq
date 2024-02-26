@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+systemctl disable --now "${MODULE_ID}.service"
+systemctl daemon-reload
+rm -f "/etc/systemd/system/${MODULE_ID}.service"
