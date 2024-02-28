@@ -1,0 +1,105 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://schema.nethserver.org/dnsmasq/configure-module.json",
+    "title": "Configure dnsmasq",
+    "description": "Configure dnsmasq module",
+    "type": "object",
+    "properties": {
+        "interface": {
+            "description": "Network interface, a list is provided by the 'get-available-interfaces' action",
+            "type": "string"
+        },
+        "dhcp-server": {
+            "description": "Defines DHCP server configuration",
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "description": "Enable DHCP server",
+                    "type": "boolean"
+                },
+                "start": {
+                    "type": "string",
+                    "format": "ipv4"
+                },
+                "end": {
+                    "type": "string",
+                    "format": "ipv4"
+                },
+                "lease": {
+                    "description": "Lease time in hours",
+                    "type": "integer",
+                    "minimum": 1
+                }
+            },
+            "required": [
+                "enabled",
+                "start",
+                "end",
+                "lease"
+            ]
+        },
+        "dns-server":{
+            "description": "Defines DNS server configuration",
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Enable DNS server"
+                },
+                "servers": {
+                    "description": "List of upstream DNS servers, where the requests shall be forwarded",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "format": "ipv4"
+                            },
+                            {
+                                "format": "ipv6"
+                            }
+                        ]
+                    }
+                },
+                "addresses": {
+                    "description": "List of static DNS entries",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "domain":{
+                                "type": "string",
+                                "format": "hostname"
+                            },
+                            "address": {
+                                "type": "string",
+                                "oneOf": [
+                                    {
+                                        "format": "ipv4"
+                                    },
+                                    {
+                                        "format": "ipv6"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "domain",
+                            "address"
+                        ]
+                    }
+                }
+            },
+            "required": [
+                "enabled",
+                "servers",
+                "addresses"
+            ]
+        }
+    },
+    "required": [
+        "interface",
+        "dhcp-server",
+        "dns-server"
+    ]
+}

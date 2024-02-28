@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+"""
+Here additional validation is performed on the request received.
+"""
+
+import ipaddress
+import json
+import os
+import sys
+
+import agent
+import network
+
+agent.set_weight(os.path.basename(__file__), 0)
+
+request = json.load(sys.stdin)
+
+interfaces = network.list_interfaces()
+interface_names = [interface["name"] for interface in interfaces]
+
+# check if interface is valid and configured
+if request["interface"] not in interface_names:
+    agent.set_status('validation-failed')
+    json.dump([{'field':'interface', 'parameter':'interface','value': request['interface'], 'error':'invalid'}], fp=sys.stdout)
+    sys.exit(2)
+
+# check dhcp-server start and end if dhcp server is enabled
+if request["dhcp-server"]["enabled"]:
+    # check if start and end are in the same network being configured
+    start = ipaddress.IPv4Address(request["dhcp-server"]["start"])
+    end = ipaddress.IPv4Address(request["dhcp-server"]["end"])
+    interface_network = next(interface for interface in interfaces if interface["name"] == request["interface"])
+    start_found = False
+    for address in interface_network["addresses"]:
+        if start in address["network"]:
+            start_found = True
+            break
+
+    end_found = False
+    for address in interface_network["addresses"]:
+        if end in address["network"]:
+            end_found = True
+            break
+
+    if not start_found:
+        agent.set_status('validation-failed')
+        json.dump([{'field':'dhcp-server.start', 'parameter':'dhcp-server.start','value': request['dhcp-server']['start'], 'error':'not_in_network'}], fp=sys.stdout)
+        sys.exit(2)
+
+    if not end_found:
+        agent.set_status('validation-failed')
+        json.dump([{'field':'dhcp-server.end', 'parameter':'dhcp-server.end','value': request['dhcp-server']['end'], 'error':'not_in_network'}], fp=sys.stdout)
+        sys.exit(2)
+
+    # check if start and end are valid
+    if start > end:
+        agent.set_status('validation-failed')
+        json.dump([{'field':'dhcp-server.start', 'parameter':'dhcp-server.start','value': request['dhcp-server']['start'], 'error':'must_be_less_than_end'}], fp=sys.stdout)
+        sys.exit(2)
+
+# check if dns servers are not empty if dns server is enabled
+if request["dns-server"]["enabled"] and len(request["dns-server"]["servers"]) == 0:
+    agent.set_status('validation-failed')
+    json.dump([{'field':'dns-server.servers', 'parameter':'dns-server.servers','value': request['dns-server']['servers'], 'error':'empty'}], fp=sys.stdout)
+    sys.exit(2)
