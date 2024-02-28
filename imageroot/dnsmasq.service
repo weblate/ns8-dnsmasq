@@ -20,6 +20,7 @@ ExecStart=/usr/bin/podman run \
         --name=dnsmasq \
         --network=host \
         --cap-add=NET_ADMIN,NET_RAW \
+        --no-hosts \
         --volume=/var/lib/nethserver/%N/state/dnsmasq.d:/etc/dnsmasq.d:Z \
         ${DNSMASQ_SERVER_IMAGE}
 ExecStop=/usr/bin/podman stop \
