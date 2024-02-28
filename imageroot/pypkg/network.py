@@ -5,6 +5,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
+import ipaddress
 import json
 import subprocess
 
@@ -41,9 +42,8 @@ def __format_interface(interface):
     for address in interface["addr_info"]:
         if address["family"] == "inet":
             interface_data["addresses"].append({
-                "address": address["local"],
-                "netmask": address["prefixlen"],
-                "broadcast": address["broadcast"]
+                "address": ipaddress.IPv4Address(address["local"]),
+                "network": ipaddress.IPv4Network(address["local"] + "/" + str(address["prefixlen"]), strict=False)
             })
 
     return interface_data
