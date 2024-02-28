@@ -6,7 +6,7 @@
 #
 
 # Create the dnsmasq.d directory
-mkdir -p "dnsmasq.d"
+mkdir -p dnsmasq.d
 # Install systemd service
-install -m 644 "${AGENT_INSTALL_DIR}/dnsmasq.service" "/etc/systemd/system/${MODULE_ID}.service"
+install -m 644 ../dnsmasq.service "/etc/systemd/system/${MODULE_ID}.service"
 systemctl daemon-reload
