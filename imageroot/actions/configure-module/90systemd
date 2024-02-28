@@ -5,6 +5,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-# OPs are separated due to restart
+# OPs are separated to allow dnsmasq to be restarted at every config change
 systemctl enable "${MODULE_ID}.service"
 systemctl restart "${MODULE_ID}.service"
