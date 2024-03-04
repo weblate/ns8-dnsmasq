@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+import datetime
+import json
+import subprocess
+import sys
+
+response = {"data": []}
+
+try:
+    result = subprocess.run(["podman", "exec", "dnsmasq", "cat", "/var/lib/misc/dnsmasq.leases"],
+                        check=True, capture_output=True, text=True)
+
+    for line in result.stdout.splitlines():
+        entry = line.split()
+        response["data"].append({
+            "expires": datetime.datetime.fromtimestamp(float(entry[0])).astimezone().isoformat(),
+            "ip": entry[2],
+            "mac": entry[1],
+            "hostname": entry[3]
+        })
+
+except subprocess.CalledProcessError as error:
+    # if podman encounters an error with the command, it will return 125
+    # otherwise it's most likely a problem with the `cat` itself, in which case the file doesn't exists yet, it's fine
+    if error.returncode == 125:
+        raise error
+
+json.dump(response, sys.stdout)
