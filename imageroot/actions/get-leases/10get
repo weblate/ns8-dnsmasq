@@ -28,7 +28,7 @@ try:
 except subprocess.CalledProcessError as error:
     # if podman encounters an error with the command, it will return 125
     # otherwise it's most likely a problem with the `cat` itself, in which case the file doesn't exists yet, it's fine
-    if error.returncode == 125:
-        raise error
+    # the choice is to handle the error returning empty data
+    pass
 
 json.dump(response, sys.stdout)
