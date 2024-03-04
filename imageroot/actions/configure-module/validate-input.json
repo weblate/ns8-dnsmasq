@@ -60,40 +60,11 @@
                             }
                         ]
                     }
-                },
-                "addresses": {
-                    "description": "List of static DNS entries",
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "domain":{
-                                "type": "string",
-                                "format": "hostname"
-                            },
-                            "address": {
-                                "type": "string",
-                                "oneOf": [
-                                    {
-                                        "format": "ipv4"
-                                    },
-                                    {
-                                        "format": "ipv6"
-                                    }
-                                ]
-                            }
-                        },
-                        "required": [
-                            "domain",
-                            "address"
-                        ]
-                    }
                 }
             },
             "required": [
                 "enabled",
-                "servers",
-                "addresses"
+                "servers"
             ]
         }
     },
