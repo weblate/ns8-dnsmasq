@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+import json
+import sys
+
+# Simply read the configuration file and send it to the UI, using the same format, there's no need to convert anything
+# i know the load-then-dump is not ideal, but this ensures that the response is proper JSON
+# (You wouldn't paste text into a JSON parser, would you?)
+json.dump({
+    "data": json.load(open("dns-records.json"))
+}, sys.stdout)
