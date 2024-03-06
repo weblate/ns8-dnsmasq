@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://schema.nethserver.org/dnsmasq/configure-module.json",
     "title": "Configure dnsmasq",
     "description": "Configure dnsmasq module",
@@ -18,17 +18,32 @@
                     "type": "boolean"
                 },
                 "start": {
-                    "type": "string",
-                    "format": "ipv4"
+                    "type": "string"
                 },
                 "end": {
-                    "type": "string",
-                    "format": "ipv4"
+                    "type": "string"
                 },
                 "lease": {
                     "description": "Lease time in hours",
                     "type": "integer",
                     "minimum": 1
+                }
+            },
+            "if": {
+                "properties": {
+                    "enabled": {
+                        "const": true
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "start": {
+                        "format": "ipv4"
+                    },
+                    "end": {
+                        "format": "ipv4"
+                    }
                 }
             },
             "required": [
@@ -48,30 +63,45 @@
                 },
                 "primary-server": {
                     "description": "Primary DNS server",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "format": "ipv4"
-                        },
-                        {
-                            "format": "ipv6"
-                        }
-                    ]
+                    "type": "string"
                 },
                 "secondary-server": {
                     "description": "Secondary DNS server",
-                    "type": "string",
-                    "oneOf": [
-                        {
-                            "format": "ipv4"
-                        },
-                        {
-                            "format": "ipv6"
-                        },
-                        {
-                            "maxLength": 0
-                        }
-                    ]
+                    "type": "string"
+                }
+            },
+            "if": {
+                "properties": {
+                    "enabled": {
+                        "const": true
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "primary-server": {
+                        "oneOf": [
+                            {
+                                "format": "ipv4"
+                            },
+                            {
+                                "format": "ipv6"
+                            }
+                        ]
+                    },
+                    "secondary-server": {
+                        "oneOf": [
+                            {
+                                "format": "ipv4"
+                            },
+                            {
+                                "format": "ipv6"
+                            },
+                            {
+                                "maxLength": 0
+                            }
+                        ]
+                    }
                 }
             },
             "required": [
