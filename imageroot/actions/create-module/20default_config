@@ -13,12 +13,11 @@ config = {
         "enabled": False,
         "start": "",
         "end": "",
-        "lease": 1
+        "lease": 12
     },
     "dns-server": {
         "enabled": False,
-        "servers": [],
-        "addresses": []
+        "servers": []
     },
 }
 
