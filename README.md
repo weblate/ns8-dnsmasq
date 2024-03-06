@@ -50,17 +50,15 @@ Configures the module with the given parameters, it will then start the dnsmasq 
 {
     "interface": "enp0s3",
     "dhcp-server": {
-        "enabled": true,
-        "start": "10.0.0.20",
         "end": "10.0.0.100",
-        "lease-time": 12
+        "enabled": true,
+        "lease": 10,
+        "start": "10.0.0.20",
     },
     "dns-server": {
         "enabled": true,
-        "servers": [
-            "192.168.0.1",
-            "1.1.1.1"
-        ]
+        "primary-server": "1.1.1.1",
+        "secondary-server": ""
     }
 }
 ```
@@ -70,10 +68,11 @@ Configures the module with the given parameters, it will then start the dnsmasq 
   - `enabled`: Enable or disable the DHCP server
   - `start`: The start of the DHCP range
   - `end`: The end of the DHCP range
-  - `lease-time`: The lease time in hours
+  - `lease`: The lease time in hours
 - `dns-server`: The DNS server configuration
   - `enabled`: Enable or disable the DNS server
-  - `servers`: The DNS servers to use to resolve the queries, can be IPv4 or IPv6 addresses
+  - `primary-server`: The primary DNS server to use, can be IPv4 or IPv6
+  - `secondary-server`: The secondary DNS server to use, can be IPv4 or IPv6 or empty
 
 #### Example Request
 ```bash
