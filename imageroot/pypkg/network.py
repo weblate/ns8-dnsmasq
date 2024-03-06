@@ -22,9 +22,7 @@ def __filter_interface(interface):
         return False
 
     # filter by configuration status
-    if "addr_info" not in interface:
-        return False
-    if interface["addr_info"] == []:
+    if "addr_info" not in interface or interface["addr_info"] == []:
         return False
 
     # return True if the interface is not filtered
@@ -37,14 +35,20 @@ def __format_interface(interface):
     """
     interface_data = {
         "name": interface["ifname"],
-        "addresses": []
+        "addresses": [],
+        "start": "",
+        "end": ""
     }
     for address in interface["addr_info"]:
         if address["family"] == "inet":
+            network = ipaddress.IPv4Network(address["local"] + "/" + str(address["prefixlen"]), strict=False)
             interface_data["addresses"].append({
                 "address": ipaddress.IPv4Address(address["local"]),
-                "network": ipaddress.IPv4Network(address["local"] + "/" + str(address["prefixlen"]), strict=False)
+                "network": network
             })
+            # last address wins the start and end fields
+            interface_data["start"] = network.network_address + 1
+            interface_data["end"] = network.network_address + network.num_addresses - 2
 
     return interface_data
 

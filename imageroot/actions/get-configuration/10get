@@ -8,7 +8,14 @@
 import json
 import sys
 
-# Simply read the configuration file and send it to the UI, using the same format, there's no need to convert anything
-# i know the load-then-dump is not ideal, but this ensures that the response is proper JSON
-# (You wouldn't paste text into a JSON parser, would you?)
-json.dump(json.load(open("config.json")), sys.stdout)
+import network
+
+config = json.load(open("config.json"))
+
+if config["interface"] != "" and config["dhcp-server"]["start"] == "" and config["dhcp-server"]["end"] == "":
+    interfaces = network.list_interfaces()
+    interface = next(interface for interface in interfaces if interface["name"] == config["interface"])
+    config["dhcp-server"]["start"] = str(interface["start"])
+    config["dhcp-server"]["end"] = str(interface["end"])
+
+json.dump(config, sys.stdout)
