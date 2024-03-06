@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "http://schema.nethserver.org/dnsmasq/get-dns-records.json",
+    "title": "Get DNS records",
+    "description": "Get a list of static DNS entries",
+    "type": "object",
+    "properties": {
+        "records": {
+            "description": "List of static DNS entries",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "domain": {
+                        "type": "string",
+                        "format": "hostname"
+                    },
+                    "address": {
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "format": "ipv4"
+                            },
+                            {
+                                "format": "ipv6"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "domain",
+                    "address"
+                ]
+            }
+        }
+    },
+    "required": [
+        "records"
+    ]
+}
