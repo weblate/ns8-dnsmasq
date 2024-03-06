@@ -38,7 +38,7 @@
                 "lease"
             ]
         },
-        "dns-server":{
+        "dns-server": {
             "description": "Defines DNS server configuration",
             "type": "object",
             "properties": {
@@ -46,25 +46,38 @@
                     "type": "boolean",
                     "description": "Enable DNS server"
                 },
-                "servers": {
-                    "description": "List of upstream DNS servers, where the requests shall be forwarded",
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "oneOf": [
-                            {
-                                "format": "ipv4"
-                            },
-                            {
-                                "format": "ipv6"
-                            }
-                        ]
-                    }
+                "primary-server": {
+                    "description": "Primary DNS server",
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "format": "ipv4"
+                        },
+                        {
+                            "format": "ipv6"
+                        }
+                    ]
+                },
+                "secondary-server": {
+                    "description": "Secondary DNS server",
+                    "type": "string",
+                    "oneOf": [
+                        {
+                            "format": "ipv4"
+                        },
+                        {
+                            "format": "ipv6"
+                        },
+                        {
+                            "maxLength": 0
+                        }
+                    ]
                 }
             },
             "required": [
                 "enabled",
-                "servers"
+                "primary-server",
+                "secondary-server"
             ]
         }
     },

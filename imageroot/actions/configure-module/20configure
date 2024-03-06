@@ -26,8 +26,10 @@ with open("dnsmasq.d/00config.conf", "w") as file:
 
     # write dns-server configuration
     if request["dns-server"]["enabled"]:
-        for server in request["dns-server"]["servers"]:
-            file.write("server=" + server + "\n")
+        file.write("server=" + request["dns-server"]["primary-server"] + "\n")
+        if request["dns-server"]["secondary-server"] != "":
+            file.write("server=" + request["dns-server"]["secondary-server"] + "\n")
+
     else:
         # shut down dns server if not enabled
         file.write("port=0\n")

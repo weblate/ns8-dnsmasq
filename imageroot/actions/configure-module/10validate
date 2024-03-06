@@ -63,9 +63,3 @@ if request["dhcp-server"]["enabled"]:
         agent.set_status('validation-failed')
         json.dump([{'field':'dhcp-server.start', 'parameter':'dhcp-server.start','value': request['dhcp-server']['start'], 'error':'must_be_less_than_end'}], fp=sys.stdout)
         sys.exit(2)
-
-# check if dns servers are not empty if dns server is enabled
-if request["dns-server"]["enabled"] and len(request["dns-server"]["servers"]) == 0:
-    agent.set_status('validation-failed')
-    json.dump([{'field':'dns-server.servers', 'parameter':'dns-server.servers','value': request['dns-server']['servers'], 'error':'empty'}], fp=sys.stdout)
-    sys.exit(2)

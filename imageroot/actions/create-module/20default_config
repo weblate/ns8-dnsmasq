@@ -17,8 +17,11 @@ config = {
     },
     "dns-server": {
         "enabled": False,
-        "servers": []
+        "primary-server": "",
+        "secondary-server": ""
     },
 }
 
 open("config.json", "w").write(json.dumps(config))
+
+open("dns-records.json", "w").write(json.dumps({"records": []}))
