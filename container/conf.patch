@@ -1,5 +1,5 @@
 --- dnsmasq.conf.example	2024-02-19 17:40:09.563152181 +0100
-+++ dnsmasq.conf.example.patch	2024-02-26 15:58:41.469024574 +0100
++++ dnsmasq.conf.example.patch	2024-03-08 08:45:42.436961452 +0100
 @@ -4,6 +4,13 @@
  # as the long options legal on the command line. See
  # "/usr/sbin/dnsmasq --help" or "man 8 dnsmasq" for details.
@@ -35,6 +35,15 @@
  
  # If you don't want dnsmasq to poll /etc/resolv.conf or other resolv
  # files for changes and re-read them then uncomment this.
+@@ -135,7 +142,7 @@
+ 
+ # If you don't want dnsmasq to read /etc/hosts, uncomment the
+ # following line.
+-#no-hosts
++no-hosts
+ # or if you want it to read another file, as well as /etc/hosts, use
+ # this.
+ #addn-hosts=/etc/banner_add_hosts
 @@ -442,7 +449,7 @@
  #dhcp-option-force=209,configs/common
  # Path prefix
