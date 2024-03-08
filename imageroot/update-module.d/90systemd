@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+# update systemd service
+install -m 644 ../dnsmasq.service "/etc/systemd/system/${MODULE_ID}.service"
+systemctl daemon-reload
+# check if the service is started, if yes, restart it
+if systemctl is-active --quiet "${MODULE_ID}"; then
+    systemctl restart "${MODULE_ID}"
+fi
