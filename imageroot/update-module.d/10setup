@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+set -e
+exec 1>&2
+
+# This file will be executed during module creation and module update, be aware of that.
+
+# Create the dnsmasq.d and hosts_dir directory
+mkdir -p dnsmasq.d dnsmasq_hosts.d
+# Install systemd service
+install -m 644 ../dnsmasq.service "/etc/systemd/system/${MODULE_ID}.service"
+systemctl daemon-reload
+# restart service only if it's already running
+systemctl try-restart "${MODULE_ID}"

@@ -13,20 +13,17 @@ RUN mkdir -p /tmp/dnsmasq \
 WORKDIR /tmp/dnsmasq
 # Build dnsmasq
 RUN make
-# Apply configuration patch
-COPY conf.patch /tmp/dnsmasq/conf.patch
-RUN patch < conf.patch
 
 FROM base as dist
 # Copy built dnsmasq and configuration
 COPY --from=build /tmp/dnsmasq/src/dnsmasq /usr/local/sbin/dnsmasq
-COPY --from=build /tmp/dnsmasq/dnsmasq.conf.example /etc/dnsmasq.conf
-# Since we're defining a config directory, we need to create it
-RUN mkdir -p /etc/dnsmasq.d
+COPY dnsmasq.conf /etc/dnsmasq.conf
+# Creating directory for custom configuration and additional hosts
+RUN mkdir -p /etc/dnsmasq.d /etc/dnsmasq_hosts.d
 # Set custom entrypoint and command
 COPY entrypoint.sh /entrypoint
 EXPOSE 53/udp
 EXPOSE 67/udp
-VOLUME [ "/etc/dnsmasq.d" ]
+VOLUME [ "/etc/dnsmasq.d", "/etc/dnsmasq_hosts.d" ]
 ENTRYPOINT [ "/entrypoint" ]
 CMD [ "dnsmasq" ]

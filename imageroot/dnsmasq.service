@@ -12,6 +12,7 @@ Restart=on-failure
 TimeoutStopSec=70
 ExecStartPre=/bin/rm \
         -f %t/%n.ctr-id
+ExecStartPre=runagent -m %N reload_hosts
 ExecStart=/usr/bin/podman run \
         --cidfile=%t/%n.ctr-id \
         --cgroups=no-conmon \
@@ -23,6 +24,7 @@ ExecStart=/usr/bin/podman run \
         --network=host \
         --cap-add=NET_ADMIN,NET_RAW \
         --volume=/var/lib/nethserver/%N/state/dnsmasq.d:/etc/dnsmasq.d:Z \
+        --volume=/var/lib/nethserver/%N/state/dnsmasq_hosts.d:/etc/dnsmasq_hosts.d:Z \
         ${DNSMASQ_SERVER_IMAGE}
 ExecStop=/usr/bin/podman stop \
         --ignore -t 10 \

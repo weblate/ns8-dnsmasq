@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+#
+# Copyright (C) 2024 Nethesis S.r.l.
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+import json
+import os
+import sys
+
+import agent
+
+# parse data and init variables
+data = json.load(sys.stdin)
+# skip if the event comes from another node
+if os.environ['NODE_ID'] != str(data['node_id']):
+    sys.exit(0)
+
+agent.run_helper('systemctl', 'restart', os.getenv('MODULE_ID'))

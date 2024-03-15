@@ -1,12 +1,1 @@
-#!/usr/bin/env sh
-
-#
-# Copyright (C) 2024 Nethesis S.r.l.
-# SPDX-License-Identifier: GPL-3.0-or-later
-#
-
-# Create the dnsmasq.d directory
-mkdir -p dnsmasq.d
-# Install systemd service
-install -m 644 ../dnsmasq.service "/etc/systemd/system/${MODULE_ID}.service"
-systemctl daemon-reload
+../../update-module.d/10setup
