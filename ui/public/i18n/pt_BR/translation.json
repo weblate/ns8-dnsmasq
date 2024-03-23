@@ -1,13 +1,31 @@
 {
     "common": {
-        "required": "Obrigatório",
-        "work_in_progress": "Em progresso",
-        "processing": "Procesando..."
+        "required": "Required",
+        "work_in_progress": "Work in progress",
+        "processing": "Processing...",
+        "edit": "Edit",
+        "clear_search": "Clear search",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "no_search_results_description": "Try changing your search query",
+        "no_search_results": "No results",
+        "close": "Close"
     },
     "status": {
-        "services": "Serviço | Serviços",
-        "app_instance": "Instância do aplicativo",
-        "title": "Estado"
+        "services": "Service | Services",
+        "app_instance": "App instance",
+        "title": "Status",
+        "mount": "Mount",
+        "installation_node": "Installation node",
+        "node": "Node",
+        "no_images": "No images",
+        "no_services": "No services",
+        "no_volumes": "No volumes",
+        "created": "Created",
+        "size": "Size",
+        "name": "Name",
+        "app_volumes": "App volume | App volumes",
+        "app_images": "App image | App images"
     },
     "error": {
         "403": "Operation not authorized",
@@ -17,19 +35,74 @@
         "network_timeout": "Network timeout",
         "404": "Resource not found",
         "network_error": "Network error",
-        "validation_error": "Validation error"
+        "validation_error": "Validation error",
+        "cannot_retrieve_installed_modules": "Cannot retrieve installed modules",
+        "cannot_retrieve_module_info": "Cannot retrieve module info",
+        "records_format": "Invalid format"
     },
     "about": {
         "title": "About"
     },
     "action": {
         "list-backup-repositories": "List backup repositories",
-        "list-backups": "List backups"
+        "list-backups": "List backups",
+        "get-status": "Get status",
+        "get-module-info": "Get module info",
+        "configure-module": "Configure module",
+        "get-name": "Get name",
+        "list-installed-modules": "List installed modules",
+        "get-configuration": "Get configuration",
+        "get-dns-records": "Get DNS records",
+        "set-dns-records": "Set DNS records"
     },
     "task": {
         "cannot_create_task": "Cannot create task {action}"
     },
     "settings": {
-        "title": "Settings"
+        "title": "Settings",
+        "configure_instance": "Configure {instance}",
+        "save": "Save",
+        "test_field": "Test field",
+        "dns-server_format": "IPv4 format required",
+        "DHCP_title": "DHCP",
+        "DNS_enable_label": "Enable DNS",
+        "DNS_primary_label": "Primary forwarding server",
+        "interface_label": "Network interface",
+        "general_title": "General",
+        "DHCP_start_label": "IP range start",
+        "DHCP_description": "Network clients receive an IP address lease from the given range.",
+        "dns-server_number_one_of": "IPv4 or IPv6 required",
+        "disabled": "Disabled",
+        "DHCP_lease_label": "Lease time",
+        "interface_placeholder": "Choose an interface",
+        "DHCP_end_label": "IP range end",
+        "DNS_description": "Network names forward and cache service, listening on port 53.",
+        "DNS_secondary_label": "Secondary forwarding server",
+        "DNS_title": "DNS",
+        "dhcp-server_invalid_type": "Number required",
+        "enabled": "Enabled",
+        "dhcp-server_format": "IPv4 format required",
+        "DHCP_enable_label": "Enable DHCP",
+        "DHCP_lease_hint": "Hours",
+        "general_description": "Dnsmasq operates only on the private network of its interface",
+        "dhcp-server_number_gte": "Enter a positive number"
+    },
+    "dns_records": {
+        "add_dns_record": "Add DNS record",
+        "no_records": "No DNS records",
+        "no_records_description": "There is no DNS record",
+        "domain": "Hostname",
+        "address": "IP address",
+        "delete_dns_record": "Delete DNS record",
+        "title": "DNS records",
+        "search_record": "Search record"
+    },
+    "pagination": {
+        "items_per_page": "Items per page:",
+        "next_page": "Next page",
+        "page_number": "Page number",
+        "range_of_total_items": "{range} of {total} items",
+        "of_total_pages": "of {total} pages",
+        "previous_page": "Previous page"
     }
 }

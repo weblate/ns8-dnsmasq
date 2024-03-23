@@ -9,18 +9,49 @@
         "network_timeout": "Netzwerk Timeout",
         "404": "Ressource nicht gefunden",
         "network_error": "Netzwerkfehler",
-        "validation_error": "Fehlerhafte Prüfung"
+        "validation_error": "Fehlerhafte Prüfung",
+        "records_format": "Invalid format"
     },
     "settings": {
         "test_field": "Testfeld",
         "configure_instance": "{instance} konfigurieren",
         "save": "Speichern",
-        "title": "Einstellungen"
+        "title": "Einstellungen",
+        "interface_label": "Network interface",
+        "general_title": "General",
+        "DHCP_title": "DHCP",
+        "dns-server_format": "IPv4 format required",
+        "DNS_enable_label": "Enable DNS",
+        "DNS_primary_label": "Primary forwarding server",
+        "DHCP_start_label": "IP range start",
+        "DHCP_description": "Network clients receive an IP address lease from the given range.",
+        "dns-server_number_one_of": "IPv4 or IPv6 required",
+        "disabled": "Deaktiviert",
+        "interface_placeholder": "Choose an interface",
+        "DHCP_end_label": "IP range end",
+        "DNS_description": "Network names forward and cache service, listening on port 53.",
+        "DNS_title": "DNS",
+        "dhcp-server_invalid_type": "Number required",
+        "DHCP_lease_label": "Lease time",
+        "DNS_secondary_label": "Secondary forwarding server",
+        "enabled": "Aktiviert",
+        "dhcp-server_format": "IPv4 format required",
+        "DHCP_enable_label": "Enable DHCP",
+        "DHCP_lease_hint": "Hours",
+        "dhcp-server_number_gte": "Enter a positive number",
+        "general_description": "Dnsmasq operates only on the private network of its interface"
     },
     "common": {
         "required": "erforderlich",
         "work_in_progress": "In Arbeit",
-        "processing": "Ausführung..."
+        "processing": "Ausführung...",
+        "edit": "Bearbeiten",
+        "clear_search": "Suche zurücksetzen",
+        "delete": "Löschen",
+        "cancel": "Abbrechen",
+        "no_search_results_description": "Suchanfrage ggf. anpassen",
+        "no_search_results": "Keine Ergebnisse",
+        "close": "Schließen"
     },
     "status": {
         "created": "erstellt",
@@ -49,9 +80,29 @@
         "get-status": "Status abfragen",
         "configure-module": "Modul konfigurieren",
         "get-configuration": "Konfiguration abrufen",
-        "get-name": "Name abrufen"
+        "get-name": "Name abrufen",
+        "get-dns-records": "Get DNS records",
+        "set-dns-records": "Set DNS records"
     },
     "task": {
         "cannot_create_task": "{task} kann nicht erstellt werden"
+    },
+    "dns_records": {
+        "no_records": "No DNS records",
+        "add_dns_record": "Add DNS record",
+        "no_records_description": "There is no DNS record",
+        "address": "IP address",
+        "delete_dns_record": "Delete DNS record",
+        "domain": "Hostname",
+        "title": "DNS records",
+        "search_record": "Search record"
+    },
+    "pagination": {
+        "next_page": "nächste Seite",
+        "page_number": "Seitenzahl",
+        "range_of_total_items": "{range} von {total} Einträgen",
+        "of_total_pages": "von {total} Seiten",
+        "previous_page": "vorige Seite",
+        "items_per_page": "Zeilen pro Seite:"
     }
 }
