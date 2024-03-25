@@ -57,5 +57,5 @@ def list_interfaces():
     """
     Returns a list of interfaces with their available addresses.
     """
-    subprocess_result = subprocess.run(["ip", "-j", "addr"], check=True, capture_output=True)
+    subprocess_result = subprocess.run(["ip", "-4", "-j", "addr"], check=True, capture_output=True)
     return [__format_interface(interface) for interface in json.loads(subprocess_result.stdout) if __filter_interface(interface)]
