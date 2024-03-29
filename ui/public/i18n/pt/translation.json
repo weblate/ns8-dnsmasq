@@ -1,57 +1,108 @@
 {
     "error": {
-        "403": "Operação não autorizada",
-        "cannot_retrieve_installed_modules": "Não é possível recuperar módulos instalados",
-        "401": "Autenticação inválida",
-        "cannot_retrieve_module_info": "Não é possível recuperar informações do módulo",
-        "generic_error": "Algo deu errado",
-        "error": "Erro",
-        "network_timeout": "Tempo limite da rede",
-        "404": "Recurso não encontrado",
-        "network_error": "Erro de rede",
-        "validation_error": "Erros de validação"
+        "403": "Operation not authorized",
+        "cannot_retrieve_installed_modules": "Cannot retrieve installed modules",
+        "401": "Invalid authentication",
+        "cannot_retrieve_module_info": "Cannot retrieve module info",
+        "generic_error": "Something went wrong",
+        "error": "Error",
+        "network_timeout": "Network timeout",
+        "404": "Resource not found",
+        "network_error": "Network error",
+        "validation_error": "Validation error",
+        "records_format": "Invalid format"
     },
     "settings": {
         "test_field": "Campo de teste",
-        "configure_instance": "Configurar {instância}",
-        "save": "Gravar",
-        "title": "Configurações"
+        "configure_instance": "Configure {instance}",
+        "save": "Save",
+        "title": "Settings",
+        "DHCP_title": "DHCP",
+        "DNS_enable_label": "Enable DNS",
+        "DNS_primary_label": "Primary forwarding server",
+        "DNS_description": "Network names forward and cache service, listening on port 53.",
+        "DNS_secondary_label": "Secondary forwarding server",
+        "dns-server_format": "IPv4 format required",
+        "interface_label": "Network interface",
+        "general_title": "General",
+        "DHCP_start_label": "IP range start",
+        "DHCP_description": "Network clients receive an IP address lease from the given range.",
+        "dns-server_number_one_of": "IPv4 or IPv6 required",
+        "disabled": "Disabled",
+        "interface_placeholder": "Choose an interface",
+        "DHCP_end_label": "IP range end",
+        "DNS_title": "DNS",
+        "dhcp-server_invalid_type": "Number required",
+        "DHCP_lease_label": "Lease time",
+        "enabled": "Enabled",
+        "dhcp-server_format": "IPv4 format required",
+        "DHCP_enable_label": "Enable DHCP",
+        "DHCP_lease_hint": "Hours",
+        "dhcp-server_number_gte": "Enter a positive number",
+        "general_description": "Dnsmasq operates only on the private network of its interface"
     },
     "common": {
-        "required": "Obrigatório",
-        "work_in_progress": "Trabalho em progresso",
-        "processing": "Processando..."
+        "required": "Required",
+        "work_in_progress": "Work in progress",
+        "processing": "Processing...",
+        "close": "Close",
+        "edit": "Edit",
+        "clear_search": "Clear search",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "no_search_results_description": "Try changing your search query",
+        "no_search_results": "No results"
     },
     "status": {
-        "created": "Criado",
-        "size": "Tamanho",
-        "name": "Nome",
-        "no_images": "Sem imagens",
-        "app_volumes": "Volume do aplicativo | Volumes dos aplicativos",
-        "services": "Serviço | Serviços",
-        "app_images": "Imagem do aplicativo | Imagens dos aplicativos",
-        "no_services": "Nenhum serviço",
-        "app_instance": "Instância do aplicativo",
-        "mount": "Montar",
-        "title": "Estado",
-        "installation_node": "Nó de instalação",
+        "created": "Created",
+        "size": "Size",
+        "name": "Name",
+        "no_images": "No images",
+        "app_volumes": "App volume | App volumes",
+        "services": "Service | Services",
+        "app_images": "App image | App images",
+        "no_services": "No services",
+        "app_instance": "App instance",
+        "mount": "Mount",
+        "title": "Status",
+        "installation_node": "Installation node",
         "node": "Node",
-        "no_volumes": "Sem volumes"
+        "no_volumes": "No volumes"
     },
     "about": {
-        "title": "Sobre"
+        "title": "About"
     },
     "action": {
-        "list-backup-repositories": "Listar repositórios de backup",
-        "get-module-info": "Obtenha informações do módulo",
-        "list-installed-modules": "Listar módulos instalados",
-        "list-backups": "Listar backups",
-        "get-status": "Obter status",
-        "configure-module": "Configurar módulo",
-        "get-configuration": "Obter configuração",
-        "get-name": "Obter nome"
+        "list-backup-repositories": "List backup repositories",
+        "get-module-info": "Get module info",
+        "list-installed-modules": "List installed modules",
+        "list-backups": "List backups",
+        "get-status": "Get status",
+        "configure-module": "Configure module",
+        "get-configuration": "Get configuration",
+        "get-name": "Get name",
+        "get-dns-records": "Get DNS records",
+        "set-dns-records": "Set DNS records"
     },
     "task": {
-        "cannot_create_task": "Não é possível criar a tarefa {action}"
+        "cannot_create_task": "Cannot create task {action}"
+    },
+    "dns_records": {
+        "add_dns_record": "Add DNS record",
+        "no_records": "No DNS records",
+        "no_records_description": "There is no DNS record",
+        "address": "IP address",
+        "delete_dns_record": "Delete DNS record",
+        "domain": "Hostname",
+        "title": "DNS records",
+        "search_record": "Search record"
+    },
+    "pagination": {
+        "items_per_page": "Items per page:",
+        "next_page": "Next page",
+        "page_number": "Page number",
+        "range_of_total_items": "{range} of {total} items",
+        "of_total_pages": "of {total} pages",
+        "previous_page": "Previous page"
     }
 }

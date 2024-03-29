@@ -2,25 +2,56 @@
     "error": {
         "403": "Operación no autorizada",
         "cannot_retrieve_installed_modules": "No se pueden recuperar los módulos instalados",
-        "401": "Autenticación no válida",
+        "401": "Autentificación no válida",
         "cannot_retrieve_module_info": "No se puede recuperar la información del módulo",
         "generic_error": "Algo salió mal",
         "error": "Error",
         "network_timeout": "Tiempo de espera de red agotado",
         "404": "Recurso no encontrado",
         "network_error": "Fallo de red",
-        "validation_error": "Error de validación"
+        "validation_error": "Error de validación",
+        "records_format": "Formato no válido"
     },
     "settings": {
         "test_field": "Campo de prueba",
         "configure_instance": "Configurar {instance}",
         "save": "Guardar",
-        "title": "Ajustes"
+        "title": "Ajustes",
+        "dns-server_format": "Se requiere formato IPv4",
+        "DHCP_description": "Los clientes de la red reciben una concesión de la dirección IP del rango dado.",
+        "dns-server_number_one_of": "Se requiere formato IPv4 o IPv6",
+        "DHCP_title": "DHCP",
+        "DNS_enable_label": "Activar DNS",
+        "DNS_primary_label": "Servidor de reenvío primario",
+        "interface_label": "Interfaz de red",
+        "general_title": "General",
+        "DHCP_start_label": "Inicio del rango de IP",
+        "disabled": "Deshabilitado",
+        "interface_placeholder": "Elige una interfaz",
+        "DHCP_end_label": "Final del rango de IP",
+        "DNS_description": "Servicio de reenvío de nombres de red y caché, en el puerto 53.",
+        "DNS_secondary_label": "Servidor de reenvío secundario",
+        "DNS_title": "DNS",
+        "dhcp-server_invalid_type": "Número requerido",
+        "DHCP_lease_label": "Tiempo de concesión",
+        "enabled": "Habilitado",
+        "dhcp-server_format": "Se requiere formato IPv4",
+        "DHCP_enable_label": "Activar DHCP",
+        "DHCP_lease_hint": "Horas",
+        "dhcp-server_number_gte": "Introduce un número positivo",
+        "general_description": "Dnsmasq opera únicamente en la red privada de su interfaz"
     },
     "common": {
         "required": "Obligatorio",
         "work_in_progress": "Trabajo en curso",
-        "processing": "Procesando..."
+        "processing": "Procesando...",
+        "edit": "Editar",
+        "clear_search": "Borrar búsqueda",
+        "delete": "Eliminar",
+        "cancel": "Cancelar",
+        "no_search_results_description": "Intenta cambiar tu consulta de búsqueda",
+        "no_search_results": "No hay resultados",
+        "close": "Cerrar"
     },
     "status": {
         "created": "Creado",
@@ -49,9 +80,29 @@
         "get-status": "Obtener el estado",
         "configure-module": "Configurar el módulo",
         "get-configuration": "Obtener la configuración",
-        "get-name": "Obtener el nombre"
+        "get-name": "Obtener el nombre",
+        "get-dns-records": "Obtener registros DNS",
+        "set-dns-records": "Establecer registros DNS"
     },
     "task": {
         "cannot_create_task": "No se puede crear la tarea {action}"
+    },
+    "pagination": {
+        "next_page": "Página siguiente",
+        "page_number": "Número de página",
+        "previous_page": "Página anterior",
+        "items_per_page": "Elementos por página:",
+        "range_of_total_items": "{range} de {total} elementos",
+        "of_total_pages": "de {total} páginas"
+    },
+    "dns_records": {
+        "add_dns_record": "Agregar registro DNS",
+        "no_records": "Sin registros DNS",
+        "no_records_description": "Sin registros de la DNS",
+        "address": "Dirección IP",
+        "delete_dns_record": "Borrar registro DNS",
+        "domain": "Nombre de host",
+        "title": "Registros DNS",
+        "search_record": "Buscar registro"
     }
 }
