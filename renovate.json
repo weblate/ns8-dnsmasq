@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "branchPrefix": "renovate-",
+  "branchNameStrict": true,
+  "ignorePaths": [
+    "**/ui/**"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "docker.io/node"
+      ],
+      "allowedVersions": "<= 18"
+    },
+    {
+      "matchDepNames": [
+        "dnsmasq"
+      ],
+      "matchDatasources": [
+        "cutom.dnsmasq"
+      ],
+      "extractVersion": "dnsmasq-(?<major>\\d+)\\.(?<minor>\\d+)$"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "build-images.sh"
+      ],
+      "matchStrings": [
+        "^DNSMASQ_VERSION=(?<currentValue>[^\\s]*)$"
+      ],
+      "versioningTemplate": "regex:(?<major>\\d+)\\.(?<minor>\\d+)",
+      "depNameTemplate": "dnsmasq",
+      "datasourceTemplate": "custom.dnsmasq"
+    }
+  ],
+  "customDatasources": {
+    "dnsmasq": {
+      "defaultRegistryUrlTemplate": "https://dnsmasq.org/",
+      "format": "html"
+    }
+  }
+}
