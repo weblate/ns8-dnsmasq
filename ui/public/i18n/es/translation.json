@@ -73,7 +73,7 @@
         "title": "Acerca de"
     },
     "action": {
-        "list-backup-repositories": "Lista de repositorios de copia de seguridad",
+        "list-backup-repositories": "Lista de repositorios de la copia de seguridad",
         "get-module-info": "Obtener información del módulo",
         "list-installed-modules": "Listado de módulos instalados",
         "list-backups": "Listado de copias de seguridad",

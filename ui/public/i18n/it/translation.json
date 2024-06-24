@@ -1,15 +1,15 @@
 {
     "common": {
         "required": "Obbligatorio",
-        "processing": "Elaborazione in corso...",
+        "processing": "In elaborazione…",
         "work_in_progress": "In lavorazione",
-        "edit": "Edit",
-        "clear_search": "Clear search",
+        "edit": "Modifica",
+        "clear_search": "Svuota ricerca",
         "delete": "Elimina",
-        "cancel": "Cancel",
-        "no_search_results": "No results",
-        "close": "Close",
-        "no_search_results_description": "Try changing your search query"
+        "cancel": "Annulla",
+        "no_search_results": "Nessun risultato",
+        "close": "Chiudi",
+        "no_search_results_description": "Prova a cambiare la tua ricerca"
     },
     "status": {
         "node": "Nodo",
@@ -32,29 +32,29 @@
         "title": "Impostazioni",
         "configure_instance": "Configura {instance}",
         "test_field": "Campo di test",
-        "DHCP_start_label": "IP range start",
-        "DHCP_end_label": "IP range end",
-        "dns-server_format": "IPv4 format required",
+        "DHCP_start_label": "Inizio intervallo IP",
+        "DHCP_end_label": "Fine intervallo IP",
+        "dns-server_format": "Richiesto formato IPv4",
         "DHCP_title": "DHCP",
-        "DNS_enable_label": "Enable DNS",
-        "DNS_primary_label": "Primary forwarding server",
-        "interface_label": "Network interface",
-        "general_title": "General",
-        "DHCP_description": "Network clients receive an IP address lease from the given range.",
-        "dns-server_number_one_of": "IPv4 or IPv6 required",
-        "interface_placeholder": "Choose an interface",
+        "DNS_enable_label": "Abilita DNS",
+        "DNS_primary_label": "Server di inoltro primario",
+        "interface_label": "Interfaccia di rete",
+        "general_title": "Generale",
+        "DHCP_description": "Ai client di rete viene periodicamente assegnato un indirizzo IP dall'intervallo dato.",
+        "dns-server_number_one_of": "Richiesto IPv4 or IPv6",
+        "interface_placeholder": "Scegli un'interfaccia",
         "disabled": "Disabilitato",
-        "DNS_description": "Network names forward and cache service, listening on port 53.",
-        "DNS_secondary_label": "Secondary forwarding server",
+        "DNS_description": "Servizio di inoltro e cache dei nomi di rete, in ascolto sulla porta 53.",
+        "DNS_secondary_label": "Server di inoltro secondario",
         "DNS_title": "DNS",
-        "dhcp-server_invalid_type": "Number required",
-        "DHCP_lease_label": "Lease time",
-        "dhcp-server_format": "IPv4 format required",
+        "dhcp-server_invalid_type": "Richiesto numero",
+        "DHCP_lease_label": "Tempo di lease",
+        "dhcp-server_format": "Richiesto formato IPv4",
         "enabled": "Abilitato",
-        "DHCP_enable_label": "Enable DHCP",
-        "DHCP_lease_hint": "Hours",
-        "dhcp-server_number_gte": "Enter a positive number",
-        "general_description": "Dnsmasq operates only on the private network of its interface"
+        "DHCP_enable_label": "Abilita DHCP",
+        "DHCP_lease_hint": "Ore",
+        "dhcp-server_number_gte": "Inserisci un numero positivo",
+        "general_description": "Dnsmasq opera soltanto sulla rete privata della sua interfaccia"
     },
     "error": {
         "error": "Errore",
@@ -67,7 +67,7 @@
         "generic_error": "Qualcosa è andato storto",
         "401": "Autenticazione non valida",
         "403": "Operazione non autorizzata",
-        "records_format": "Invalid format"
+        "records_format": "Formato non valido"
     },
     "action": {
         "configure-module": "Configura modulo",
@@ -78,8 +78,8 @@
         "list-backup-repositories": "Elenca repository di backup",
         "list-backups": "Elenca backup",
         "list-installed-modules": "Elenca moduli installati",
-        "get-dns-records": "Get DNS records",
-        "set-dns-records": "Set DNS records"
+        "get-dns-records": "Ottieni record DNS",
+        "set-dns-records": "Imposta record DNS"
     },
     "task": {
         "cannot_create_task": "Impossibile eseguire task {action}"
@@ -88,21 +88,21 @@
         "title": "Informazioni"
     },
     "dns_records": {
-        "add_dns_record": "Add DNS record",
-        "no_records": "No DNS records",
-        "no_records_description": "There is no DNS record",
-        "search_record": "Search record",
-        "address": "IP address",
-        "delete_dns_record": "Delete DNS record",
-        "domain": "Hostname",
-        "title": "DNS records"
+        "add_dns_record": "Aggiungi record DNS",
+        "no_records": "Nessun record DNS",
+        "no_records_description": "Non esiste alcun record DNS",
+        "search_record": "Cerca record",
+        "address": "Indirizzo IP",
+        "delete_dns_record": "Elimina record DNS",
+        "domain": "Nome host",
+        "title": "DNS record"
     },
     "pagination": {
-        "items_per_page": "Items per page:",
-        "next_page": "Next page",
-        "page_number": "Page number",
-        "range_of_total_items": "{range} of {total} items",
-        "of_total_pages": "of {total} pages",
-        "previous_page": "Previous page"
+        "items_per_page": "Elementi per pagina:",
+        "next_page": "Pagina successiva",
+        "page_number": "Numero di pagina",
+        "range_of_total_items": "{range} di {total} elementi",
+        "of_total_pages": "di {totale} pagine",
+        "previous_page": "Pagina precedente"
     }
 }
