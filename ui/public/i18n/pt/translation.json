@@ -13,7 +13,6 @@
         "records_format": "Invalid format"
     },
     "settings": {
-        "test_field": "Campo de teste",
         "configure_instance": "Configure {instance}",
         "save": "Save",
         "title": "Settings",

@@ -31,7 +31,6 @@
         "save": "Salva",
         "title": "Impostazioni",
         "configure_instance": "Configura {instance}",
-        "test_field": "Campo di test",
         "DHCP_start_label": "Inizio intervallo IP",
         "DHCP_end_label": "Fine intervallo IP",
         "dns-server_format": "Richiesto formato IPv4",
@@ -102,7 +101,7 @@
         "next_page": "Pagina successiva",
         "page_number": "Numero di pagina",
         "range_of_total_items": "{range} di {total} elementi",
-        "of_total_pages": "di {totale} pagine",
+        "of_total_pages": "di {total} pagine",
         "previous_page": "Pagina precedente"
     }
 }

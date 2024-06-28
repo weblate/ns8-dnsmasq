@@ -62,7 +62,6 @@
         "title": "Settings",
         "configure_instance": "Configure {instance}",
         "save": "Save",
-        "test_field": "Test field",
         "dns-server_format": "IPv4 format required",
         "DHCP_title": "DHCP",
         "DNS_enable_label": "Enable DNS",

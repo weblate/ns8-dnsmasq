@@ -13,7 +13,6 @@
         "records_format": "Invalid format"
     },
     "settings": {
-        "test_field": "Proba-eremua",
         "configure_instance": "Configure {instance}",
         "save": "Save",
         "title": "Settings",
