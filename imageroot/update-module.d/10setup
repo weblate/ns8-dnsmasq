@@ -16,4 +16,6 @@ mkdir -p dnsmasq.d dnsmasq_hosts.d
 install -m 644 ../dnsmasq.service "/etc/systemd/system/${MODULE_ID}.service"
 systemctl daemon-reload
 # Restart the service, if the module has been configured:
-systemctl -q is-enabled "${MODULE_ID}" && systemctl restart -T "${MODULE_ID}"
+if systemctl -q is-enabled "${MODULE_ID}"; then
+    systemctl restart -T "${MODULE_ID}"
+fi
