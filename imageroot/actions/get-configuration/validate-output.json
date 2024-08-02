@@ -96,11 +96,21 @@
                 "primary-server",
                 "secondary-server"
             ]
+        },
+        "is_dns_enabled": {
+            "description": "True if dnsmasq is configured",
+            "type": "boolean"
+        },
+        "is_dns_bound": {
+            "description": "True if DNS servers are bound to the interface",
+            "type": "boolean"
         }
     },
     "required": [
         "interface",
         "dhcp-server",
-        "dns-server"
+        "dns-server",
+        "is_dns_enabled",
+        "is_dns_bound"
     ]
 }

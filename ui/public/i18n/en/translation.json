@@ -53,7 +53,9 @@
         "dhcp-server_invalid_type": "Number required",
         "dhcp-server_number_gte": "Enter a positive number",
         "dns-server_format": "IPv4 format required",
-        "dns-server_number_one_of": "IPv4 or IPv6 required"
+        "dns-server_number_one_of": "IPv4 or IPv6 required",
+        "dns_server_is_running": "A DNS server is currently running",
+        "dns_server_is_running_description": "You cannot enable the DNS feature because a DNS server is already active on this node. Another application, such as Samba DC, might be using the DNS port."
     },
     "dns_records": {
         "title": "DNS records",

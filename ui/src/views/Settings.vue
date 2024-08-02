@@ -162,11 +162,28 @@
                 <div class="title-description mg-bottom-xlg">
                   {{ $t("settings.DNS_description") }}
                 </div>
+                <cv-row
+                  v-if="is_dns_bound && !dnsEnableField && !is_dns_enabled"
+                >
+                  <cv-column>
+                    <NsInlineNotification
+                      kind="info"
+                      :title="$t('settings.dns_server_is_running')"
+                      :description="
+                        $t('settings.dns_server_is_running_description')
+                      "
+                      :showCloseButton="false"
+                    />
+                  </cv-column>
+                </cv-row>
                 <NsToggle
                   :label="$t('settings.DNS_enable_label')"
                   v-model="dnsEnableField"
                   value="dnsEnableField"
                   formItem
+                  :disabled="
+                    is_dns_bound && !dnsEnableField && !is_dns_enabled
+                  "
                   ref="dnsEnableField"
                 >
                   <template slot="text-left">{{
@@ -201,7 +218,9 @@
                   :icon="Save20"
                   :loading="loading.configureModule"
                   :disabled="
-                    loading.getConfiguration || loading.configureModule
+                    loading.getConfiguration ||
+                    loading.configureModule ||
+                    (is_dns_bound && !dnsEnableField && !is_dns_enabled)
                   "
                   >{{ $t("settings.save") }}</NsButton
                 >
@@ -250,6 +269,8 @@ export default {
       dhcpStartField: "",
       dhcpEndField: "",
       dhcpLeaseField: 12,
+      is_dns_bound: false,
+      is_dns_enabled: false,
       dnsEnableField: false,
       dnsPrimaryField: "",
       dnsSecondaryField: "",
@@ -406,6 +427,8 @@ export default {
       this.dnsEnableField = dns_server["enabled"];
       this.dnsPrimaryField = dns_server["primary-server"];
       this.dnsSecondaryField = dns_server["secondary-server"];
+      this.is_dns_bound = config["is_dns_bound"];
+      this.is_dns_enabled = config["is_dns_enabled"];
     },
     validateConfigureModule() {
       this.clearErrors(this);

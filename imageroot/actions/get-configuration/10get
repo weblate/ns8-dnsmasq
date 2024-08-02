@@ -18,4 +18,10 @@ if config["interface"] != "" and config["dhcp-server"]["start"] == "" and config
     config["dhcp-server"]["start"] = str(interface["start"])
     config["dhcp-server"]["end"] = str(interface["end"])
 
+# we test if tcp/53 or udp/53 is bound to the interface
+config["is_dns_bound"] = network.are_ports_53_bound()
+# check if dnsmasq is enabled in the configuration, needed to determine in the UI if the DNS server was enabled and used by dnsmasq.
+# the dnsmasq service is always running, we cannot state if it is enabled/active or not.
+config['is_dns_enabled'] = config["dns-server"]["enabled"]
+
 json.dump(config, sys.stdout)

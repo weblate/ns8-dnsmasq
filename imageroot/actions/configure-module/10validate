@@ -63,3 +63,14 @@ if request["dhcp-server"]["enabled"]:
         agent.set_status('validation-failed')
         json.dump([{'field':'dhcp-server.start', 'parameter':'dhcp-server.start','value': request['dhcp-server']['start'], 'error':'must_be_less_than_end'}], fp=sys.stdout)
         sys.exit(2)
+
+if request["dns-server"]["enabled"]:
+    is_dns_bound = network.are_ports_53_bound()
+    # read config.json and determine if dns is used for this instance
+    config = json.load(open("config.json"))
+    is_dns_enabled = config["dns-server"]["enabled"]
+    # check if dns is already bound to port 53 and stop the action
+    if is_dns_bound and not is_dns_enabled:
+        agent.set_status('validation-failed')
+        json.dump([{'field':'dnsEnableField', 'parameter':'dnsEnableField', 'value': request['dns-server']['enabled'], 'error':'dns_port_already_bind'}], fp=sys.stdout)
+        sys.exit(3)

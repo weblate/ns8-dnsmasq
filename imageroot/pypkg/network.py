@@ -8,6 +8,7 @@
 import ipaddress
 import json
 import subprocess
+import socket
 
 
 def __filter_interface(interface):
@@ -59,3 +60,21 @@ def list_interfaces():
     """
     subprocess_result = subprocess.run(["ip", "-4", "-j", "addr"], check=True, capture_output=True)
     return [__format_interface(interface) for interface in json.loads(subprocess_result.stdout) if __filter_interface(interface)]
+
+def __is_port_bound(port, protocol, ip='127.0.0.1'):
+    """
+    Check if a port is already bound for a given protocol (TCP/UDP) on a specific IP address.
+    """
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM if protocol == 'tcp' else socket.SOCK_DGRAM)
+    try:
+        s.bind((ip, port))
+        s.close()
+        return False
+    except OSError:
+        return True
+
+def are_ports_53_bound(ip='127.0.0.1'):
+    """
+    Check if both TCP and UDP ports 53 are bound on a specific IP address.
+    """
+    return __is_port_bound(53, 'tcp', ip) or __is_port_bound(53, 'udp', ip)
