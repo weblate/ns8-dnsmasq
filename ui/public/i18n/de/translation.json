@@ -38,7 +38,9 @@
         "DHCP_enable_label": "DHCP aktivieren",
         "DHCP_lease_hint": "Stunden",
         "dhcp-server_number_gte": "positive Zahl eingeben",
-        "general_description": "Dnsmasq arbeitet nur im privaten Netzbereich der zugewiesen Schnittstelle"
+        "general_description": "Dnsmasq arbeitet nur im privaten Netzbereich der zugewiesen Schnittstelle",
+        "dns_server_is_running": "A DNS server is currently running",
+        "dns_server_is_running_description": "You cannot enable the DNS feature because a DNS server is already active on this node. Another application, such as Samba DC, might be using the DNS port."
     },
     "common": {
         "required": "Erforderlich",

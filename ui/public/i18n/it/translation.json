@@ -53,7 +53,9 @@
         "DHCP_enable_label": "Abilita DHCP",
         "DHCP_lease_hint": "Ore",
         "dhcp-server_number_gte": "Inserisci un numero positivo",
-        "general_description": "Dnsmasq opera soltanto sulla rete privata della sua interfaccia"
+        "general_description": "Dnsmasq opera soltanto sulla rete privata della sua interfaccia",
+        "dns_server_is_running": "Un server DNS è già in esecuzione",
+        "dns_server_is_running_description": "Non è possibile attivare la funzione DNS perché un server DNS è già attivo su questo nodo. Un'altra applicazione, come Samba DC, potrebbe occupare la porta DNS."
     },
     "error": {
         "error": "Errore",
@@ -81,7 +83,7 @@
         "set-dns-records": "Imposta record DNS"
     },
     "task": {
-        "cannot_create_task": "Impossibile eseguire task {action}"
+        "cannot_create_task": "Impossibile eseguire il task {action}"
     },
     "about": {
         "title": "Informazioni"
