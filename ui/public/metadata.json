@@ -4,7 +4,7 @@
     "en": "Lightweight DNS and DHCP server for the local network",
     "it": "Un server DNS e DHCP leggero per la rete locale"
   },
-  "categories": [],
+  "categories": ["system_administration"],
   "authors": [
     {
       "name": "Tommaso Bailetti",
