@@ -39,8 +39,8 @@
         "DHCP_lease_hint": "Horas",
         "dhcp-server_number_gte": "Introduce un número positivo",
         "general_description": "Dnsmasq opera únicamente en la red privada de su interfaz",
-        "dns_server_is_running": "A DNS server is currently running",
-        "dns_server_is_running_description": "You cannot enable the DNS feature because a DNS server is already active on this node. Another application, such as Samba DC, might be using the DNS port."
+        "dns_server_is_running": "Actualmente se está ejecutando un servidor DNS",
+        "dns_server_is_running_description": "No se puede habilitar la función DNS porque ya hay un servidor DNS activo en este nodo. Otra aplicación, como Samba DC, podría estar usando el puerto DNS."
     },
     "common": {
         "required": "Obligatorio",
