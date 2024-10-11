@@ -24,5 +24,6 @@ FROM scratch as dist
 COPY imageroot imageroot
 COPY --from=builder /app/dist ui
 LABEL org.nethserver.rootfull=1
+LABEL org.nethserver.max-per-node=1
 LABEL org.nethserver.authorizations="node:fwadm"
 ENTRYPOINT [ "/" ]
