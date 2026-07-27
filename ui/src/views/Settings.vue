@@ -191,9 +191,7 @@
                   v-model="dnsEnableField"
                   value="dnsEnableField"
                   formItem
-                  :disabled="
-                    is_dns_bound && !dnsEnableField && !is_dns_enabled
-                  "
+                  :disabled="is_dns_bound && !dnsEnableField && !is_dns_enabled"
                   ref="dnsEnableField"
                 >
                   <template slot="text-left">{{

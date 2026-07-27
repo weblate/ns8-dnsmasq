@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SSHLibrary
 Library    DnsmasqTest.py
-Library    Browser
 
 *** Variables ***
 ${INTERFACE}    eth0
@@ -27,6 +26,7 @@ Module installation
 
 Take screenshots
     [Tags]    ui
+    Import Library    Browser
     New Browser    chromium    headless=True
     New Context    ignoreHTTPSErrors=True
     Login to cluster-admin

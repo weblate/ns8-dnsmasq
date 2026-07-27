@@ -26,4 +26,5 @@ COPY --from=builder /app/dist ui
 LABEL org.nethserver.rootfull=1
 LABEL org.nethserver.max-per-node=1
 LABEL org.nethserver.authorizations="node:fwadm"
+LABEL org.nethserver.min-core="3.20.1"
 ENTRYPOINT [ "/" ]
